@@ -54,7 +54,7 @@ const Navbar = () => {
                                 {eventLinks}
                             </ul>
                         </div>
-                        <Link to={'/login'} class="button2">Log In</Link>
+                        <Link to={'/auth/login'} className="button2">Login</Link>
                     </div>
                 </div>
             </div>

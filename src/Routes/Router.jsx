@@ -8,6 +8,7 @@ import JoinedEventPage from "../Pages/JoinedEventPage";
 import ManageEventPage from "../Pages/ManageEventPage";
 import UpComingEventPage from "../Pages/UpComingEventPage";
 import ErrorPage from "../Components/ErrorPage";
+import EventDetailsPage from "../Pages/EventDetailsPage";
 
 const router = createBrowserRouter([
     {
@@ -19,11 +20,11 @@ const router = createBrowserRouter([
                 element:<HomePage></HomePage>
             },
             {
-                path: '/login',
+                path: '/auth/login',
                 element: <LoginPage></LoginPage>
             },
             {
-                path: '/registration',
+                path: '/auth/registration',
                 element: <RegistrationPage></RegistrationPage>
             },
             {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path: '/up-coming-event',
                 element: <UpComingEventPage></UpComingEventPage>
+            },
+            {
+                path: '/event-details',
+                element: <EventDetailsPage></EventDetailsPage>
             },
             {
                 path: '*',
