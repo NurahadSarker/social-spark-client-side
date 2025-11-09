@@ -3,7 +3,7 @@ import React from 'react';
 const UpComingEventPage = () => {
     return (
         <div>
-            Up Coming Event Page
+            <p>Up Coming Event Page</p>
         </div>
     );
 };

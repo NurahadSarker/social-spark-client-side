@@ -3,7 +3,7 @@ import React from 'react';
 const CreateEventPage = () => {
     return (
         <div>
-            Create event page
+            <p>Create event page</p>
         </div>
     );
 };

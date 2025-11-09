@@ -3,7 +3,7 @@ import React from 'react';
 const JoinedEventPage = () => {
     return (
         <div>
-            Joined Event Page
+            <p>Joined Event Page</p>
         </div>
     );
 };
