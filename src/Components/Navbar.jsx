@@ -1,19 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import logo from '../assets/social-spark-logo.png';
 
 const Navbar = () => {
     const navLinks = <>
-        <li><NavLink>Home</NavLink></li>
-        <li><NavLink>Up Coming Events</NavLink></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>
+        <li><NavLink to={'/up-coming-event'}>Up Coming Events</NavLink></li>
         <li><NavLink>About Us</NavLink></li>
         <li><NavLink>Blog</NavLink></li>
         <li><NavLink>Contact</NavLink></li>
     </>
     const eventLinks = <>
-        <li><NavLink>Create Event</NavLink></li>
-        <li><NavLink>Manage Events</NavLink></li>
-        <li><NavLink>Joined Events</NavLink></li>
+        <li><NavLink to={'/create-event'}>Create Event</NavLink></li>
+        <li><NavLink to={'/manage-event'}>Manage Events</NavLink></li>
+        <li><NavLink to={'/joined-even'}>Joined Events</NavLink></li>
     </>
     return (
         <>
@@ -31,7 +31,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div>
-                            <img className='w-30' src={logo} alt="" />
+                            <Link to={'/'}><img className='w-25' src={logo} alt="" /></Link>
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -54,7 +54,7 @@ const Navbar = () => {
                                 {eventLinks}
                             </ul>
                         </div>
-                        <a className="btn">Button</a>
+                        <Link to={'/login'} class="button2">Log In</Link>
                     </div>
                 </div>
             </div>
