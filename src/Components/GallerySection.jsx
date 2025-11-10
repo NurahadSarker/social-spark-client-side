@@ -11,7 +11,6 @@ const GallerySection = () => {
         <div className='max-w-[1200px] mx-auto py-20'>
             <div className='flex flex-col items-center justify-center mb-10'>
                 <h1 className='text-5xl font-bold text-[#29B467] mb-2'>Our Gallery</h1>
-                <div className='w-[280px] border border-[#326DB6]'></div>
             </div>
             <div>
                 <Marquee>
@@ -39,7 +38,7 @@ const GallerySection = () => {
                         </div>
                     </div>
 
-                    <div className='w-[500px] h-[280px]'>
+                    <div className='w-[500px] h-[280px] mr-2'>
                         <div className='w-full h-full flex items-center justify-center border border-[#29B467] p-3'>
                             <img className='w-full h-full object-cover' src={Image5} alt="" />
                         </div>
