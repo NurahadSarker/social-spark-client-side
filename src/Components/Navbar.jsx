@@ -4,16 +4,16 @@ import logo from '../assets/social-spark-logo.png';
 
 const Navbar = () => {
     const navLinks = <>
-        <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><NavLink to={'/up-coming-event'}>Up Coming Events</NavLink></li>
-        <li><NavLink>About Us</NavLink></li>
-        <li><NavLink>Blog</NavLink></li>
-        <li><NavLink>Contact</NavLink></li>
+        <li className='btn1'><NavLink to={'/'}>Home</NavLink></li>
+        <li className='btn1'><NavLink to={'/up-coming-event'}>Up Coming Events</NavLink></li>
+        <li className='btn1'><NavLink>About Us</NavLink></li>
+        <li className='btn1'><NavLink>Blog</NavLink></li>
+        <li className='btn1'><NavLink>Contact</NavLink></li>
     </>
     const eventLinks = <>
-        <li><NavLink to={'/create-event'}>Create Event</NavLink></li>
-        <li><NavLink to={'/manage-event'}>Manage Events</NavLink></li>
-        <li><NavLink to={'/joined-even'}>Joined Events</NavLink></li>
+        <li className='btn1'><NavLink to={'/create-event'}>Create Event</NavLink></li>
+        <li className='btn1'><NavLink to={'/manage-event'}>Manage Events</NavLink></li>
+        <li className='btn1'><NavLink to={'/joined-even'}>Joined Events</NavLink></li>
     </>
     return (
         <>
@@ -35,7 +35,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1">
+                        <ul className=" menu-horizontal px-1">
                             {navLinks}
                         </ul>
                     </div>
