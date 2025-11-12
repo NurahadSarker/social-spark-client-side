@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ManageEventPage = () => {
     return (
@@ -24,7 +25,7 @@ const ManageEventPage = () => {
                             <td>Mirpur 10, Dhaka</td>
                             <td>Cleanup</td>
                             <td>
-                                <button className='btn bg-[#29B467] text-white mr-2'>Update</button>
+                                <Link to={'/update-event'} className='btn bg-[#29B467] text-white mr-2'>Update</Link>
                                 <button className='btn bg-red-500 text-white'>Delete</button>
                             </td>
                         </tr>
@@ -35,7 +36,7 @@ const ManageEventPage = () => {
                             <td>Mirpur 10, Dhaka</td>
                             <td>Cleanup</td>
                             <td>
-                                <button className='btn bg-[#29B467] text-white mr-2'>Update</button>
+                                <Link to={'/update-event'} className='btn bg-[#29B467] text-white mr-2'>Update</Link>
                                 <button className='btn bg-red-500 text-white'>Delete</button>
                             </td>
                         </tr>
@@ -46,7 +47,7 @@ const ManageEventPage = () => {
                             <td>Mirpur 10, Dhaka</td>
                             <td>Cleanup</td>
                             <td>
-                                <button className='btn bg-[#29B467] text-white mr-2'>Update</button>
+                                <Link to={'/update-event'} className='btn bg-[#29B467] text-white mr-2'>Update</Link>
                                 <button className='btn bg-red-500 text-white'>Delete</button>
                             </td>
                         </tr>

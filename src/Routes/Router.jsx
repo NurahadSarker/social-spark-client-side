@@ -9,6 +9,8 @@ import ManageEventPage from "../Pages/ManageEventPage";
 import UpComingEventPage from "../Pages/UpComingEventPage";
 import ErrorPage from "../Components/ErrorPage";
 import EventDetailsPage from "../Pages/EventDetailsPage";
+import UpdateEventPage from "../Pages/UpdateEventPage";
+import AuthLayout from "../Layout/AuthLayout";
 
 const router = createBrowserRouter([
     {
@@ -17,15 +19,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element:<HomePage></HomePage>
-            },
-            {
-                path: '/auth/login',
-                element: <LoginPage></LoginPage>
-            },
-            {
-                path: '/auth/registration',
-                element: <RegistrationPage></RegistrationPage>
+                element: <HomePage></HomePage>
             },
             {
                 path: '/create-event',
@@ -40,6 +34,10 @@ const router = createBrowserRouter([
                 element: <ManageEventPage></ManageEventPage>
             },
             {
+                path: '/update-event',
+                element: <UpdateEventPage></UpdateEventPage>
+            },
+            {
                 path: '/up-coming-event',
                 element: <UpComingEventPage></UpComingEventPage>
             },
@@ -52,7 +50,21 @@ const router = createBrowserRouter([
                 element: <ErrorPage></ErrorPage>
             }
         ]
-    }
+    },
+    {
+        path: '/auth',
+        element: <AuthLayout></AuthLayout>,
+        children: [
+            {
+                path: '/auth/login',
+                element: <LoginPage></LoginPage>
+            },
+            {
+                path: '/auth/registration',
+                element: <RegistrationPage></RegistrationPage>
+            }
+        ]
+    },
 ])
 
 export default router;
