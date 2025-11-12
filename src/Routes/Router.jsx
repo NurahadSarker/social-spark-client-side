@@ -12,6 +12,7 @@ import EventDetailsPage from "../Pages/EventDetailsPage";
 import UpdateEventPage from "../Pages/UpdateEventPage";
 import AuthLayout from "../Layout/AuthLayout";
 import PrivateRouter from "../Provider/PrivateRouter";
+import ForgotPasswordPage from "../Pages/ForgotPasswordPage";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: '/event-details',
                 element: <EventDetailsPage></EventDetailsPage>
+            },
+            {
+                path: '/forgot-password',
+                element: <ForgotPasswordPage></ForgotPasswordPage>
             },
             {
                 path: '*',

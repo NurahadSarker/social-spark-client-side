@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/social-spark-logo.png';
+import userIcon from '../assets/user-icon.png'
 import { AuthContext } from '../Provider/AuthContext';
 
 const Navbar = () => {
@@ -53,8 +54,9 @@ const Navbar = () => {
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    title={user ? user.displayName : "Please Login"}
+                                    alt="Tailwind CSS Navbar component"
+                                    src={`${user ? user.photoURL : userIcon}`} />
                                 </div>
                             </div>
                             <ul

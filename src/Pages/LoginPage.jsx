@@ -48,9 +48,9 @@ const LoginPage = () => {
             })
     };
 
-    const handleForgetPage = () => {
+    const handleForgotPassword = () =>{
         const email = emailRef.current.value;
-        navigate('/forget_password', { state: { email: email } });
+        navigate('/forgot-password', {state: {email: email}})
     };
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -61,7 +61,7 @@ const LoginPage = () => {
                         <div className='border-b border-gray-400 mb-2'></div>
                         {/* email */}
                         <label className="label">Email</label>
-                        <input name='email' type="email" className="input" placeholder="Email" required />
+                        <input ref={emailRef} name='email' type="email" className="input" placeholder="Email" required />
 
                         {/* password */}
                         <label className="label">Password</label>
@@ -69,7 +69,7 @@ const LoginPage = () => {
                             <input name='password' type={showPassword ? 'text' : 'password'} className="input" placeholder="Password" required />
                             <button onClick={handleShowPasswordBtn} className='top-3 right-7 text-[18px] absolute hover:cursor-pointer'>{showPassword ? <FaEyeSlash /> : <FaEye />}</button>
                         </div>
-                        <div><a onClick={handleForgetPage} className="link link-hover">Forgot password?</a></div>
+                        <div><a onClick={handleForgotPassword} className="link link-hover">Forgot password?</a></div>
 
                         <button type='submit' className="btn btn-neutral mt-4 text-white bg-[#29B467] border-0">Login</button>
 
