@@ -37,6 +37,22 @@ const RegistrationPage = () => {
                 updateUser({ displayName: name, photoURL: photo, email: email })
                     .then(() => {
                         setUser({ ...user, displayName: name, photoURL: photo, email: email })
+                        const newUser = {
+                            name: result.user.displayName,
+                            email: result.user.email,
+                            image: result.user.photoURL
+                        }
+                        console.log("Google user:", newUser);
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(newUser)
+                        }).then(res => res.json())
+                            .then(data => {
+                                console.log('Data after save users', data)
+                            })
                         alert('Registration successful!!')
                         navigate(location.state || "/");
                     })
@@ -58,6 +74,22 @@ const RegistrationPage = () => {
             .then(result => {
                 const user = result.user
                 // console.log(user)
+                const newUser = {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    image: result.user.photoURL
+                }
+                console.log("Google user:", newUser);
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                }).then(res => res.json())
+                    .then(data => {
+                        console.log('Data after save users', data)
+                    })
                 alert('Register with gmail Successfully!!')
                 navigate(`/`)
             })

@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, updatedData);
     };
 
-    const loginWithGoogle = () => {
+    const signInWithGoogle = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         signUser,
-        loginWithGoogle,
+        signInWithGoogle,
         forgotPassword,
         logOutUser,
         updateUser,
