@@ -30,15 +30,21 @@ const router = createBrowserRouter([
             },
             {
                 path: '/joined-even',
-                element: <JoinedEventPage></JoinedEventPage>
+                element: <PrivateRouter>
+                    <JoinedEventPage></JoinedEventPage>
+                </PrivateRouter>
             },
             {
                 path: '/manage-event',
-                element: <ManageEventPage></ManageEventPage>
+                element: <PrivateRouter>
+                    <ManageEventPage></ManageEventPage>
+                </PrivateRouter>
             },
             {
                 path: '/update-event',
-                element: <UpdateEventPage></UpdateEventPage>
+                element: <PrivateRouter>
+                    <UpdateEventPage></UpdateEventPage>
+                </PrivateRouter>
             },
             {
                 path: '/up-coming-event',
