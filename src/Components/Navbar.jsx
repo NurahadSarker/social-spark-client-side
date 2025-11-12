@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/social-spark-logo.png';
+import { AuthContext } from '../Provider/AuthContext';
 
 const Navbar = () => {
+    const { user, logOutUser } = use(AuthContext)
+    const handleLogOut = () => {
+        logOutUser().then(() => {
+            alert('Log Out successfully')
+        }).catch((err) => {
+            alert(err)
+        })
+    }
     const navLinks = <>
         <li className='btn1'><NavLink to={'/'}>Home</NavLink></li>
         <li className='btn1'><NavLink to={'/up-coming-event'}>Up Coming Events</NavLink></li>
@@ -54,7 +63,14 @@ const Navbar = () => {
                                 {eventLinks}
                             </ul>
                         </div>
-                        <Link to={'/auth/login'} className="button2">Login</Link>
+                        {/* <Link to={'/auth/login'} className="button2">Login</Link> */}
+                        <div>
+                            {
+                                user ? (
+                                    <Link onClick={handleLogOut} className="button2">Log Out</Link>
+                                ) : (<Link to={`/auth/login`} className="button2">Log In</Link>)
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

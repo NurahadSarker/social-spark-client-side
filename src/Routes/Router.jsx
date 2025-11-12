@@ -11,6 +11,7 @@ import ErrorPage from "../Components/ErrorPage";
 import EventDetailsPage from "../Pages/EventDetailsPage";
 import UpdateEventPage from "../Pages/UpdateEventPage";
 import AuthLayout from "../Layout/AuthLayout";
+import PrivateRouter from "../Provider/PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/create-event',
-                element: <CreateEventPage></CreateEventPage>
+                element: <PrivateRouter>
+                    <CreateEventPage></CreateEventPage>
+                </PrivateRouter>
             },
             {
                 path: '/joined-even',
