@@ -45,5 +45,5 @@ SocialSpark is a community-driven platform for managing social service events. U
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/social-spark-client-side.git
-   git clone https://github.com/yourusername/social-spark-server-side.git
+   git clone https://github.com/NurahadSarker/social-spark-client-side.git
+   git clone https://github.com/NurahadSarker/social-spark-server-side.git
