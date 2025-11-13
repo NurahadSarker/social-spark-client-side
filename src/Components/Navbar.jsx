@@ -23,7 +23,7 @@ const Navbar = () => {
     const eventLinks = <>
         <li className='btn1'><NavLink to={'/create-event'}>Create Event</NavLink></li>
         <li className='btn1'><NavLink to={'/manage-event'}>Manage Events</NavLink></li>
-        <li className='btn1'><NavLink to={'/joined-even'}>Joined Events</NavLink></li>
+        <li className='btn1'><NavLink to={'/joined-event'}>Joined Events</NavLink></li>
     </>
     return (
         <>

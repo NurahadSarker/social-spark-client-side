@@ -4,10 +4,46 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEventPage = () => {
     const [startDate, setStartDate] = useState(new Date());
+    // const [description, setDescription] = useState("");
+    const handleCreateEvent = (e) => {
+        e.preventDefault()
+        const title = e.target.title.value;
+        const eventDescription = e.target.description.value
+        const email = e.target.email.value;
+        const eventType = e.target.eventType.value;
+        const thumbnailImage = e.target.thumbnailImage.value;
+        const location = e.target.location.value;
+        const date = startDate.toISOString().split('T')[0];
+        console.log(title, eventDescription, email, eventType, thumbnailImage, location, date)
+
+        const newEvent = {
+            title: title,
+            eventDescription: eventDescription,
+            email: email,
+            eventType: eventType,
+            thumbnailImage: thumbnailImage,
+            location: location,
+            date: date
+        }
+        fetch('http://localhost:5000/events', {
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(newEvent)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            e.target.reset()
+
+        })
+        
+    }
     return (
         <div className="min-h-screen py-20">
             <div className=" bg-base-100 w-full max-w-[900px] mx-auto shrink-0">
-                <form className="card-body">
+                <form onSubmit={handleCreateEvent} className="card-body">
                     <fieldset className="fieldset">
                         <h1 className='text-5xl font-bold text-[#29B467] mb-2'>Create Event</h1>
 
@@ -17,11 +53,18 @@ const CreateEventPage = () => {
 
                         {/*description*/}
                         <label className="label">Description</label>
-                        <textarea className="textarea w-full" placeholder="Write your Event Description..."></textarea>
+                        <textarea
+                            className="textarea w-full"
+                            placeholder="Write your Event Description..."
+                            name='description'></textarea>
+
+                        {/* email */}
+                        <label className="label">Email</label>
+                        <input name='email' type="email" className="input w-full" placeholder="Write your email" required />
 
                         {/*event type*/}
                         <label className="label">Event Type</label>
-                        <select defaultValue="Select event type" className="select w-full">
+                        <select name='eventType' defaultValue="Select event type" className="select w-full">
                             <option disabled={true}>Select event type</option>
                             <option>Cleanup</option>
                             <option>Plantation</option>

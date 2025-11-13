@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 
 const LoginPage = () => {
-    const { signUser, setUser, loginWithGoogle } = use(AuthContext);
+    const { signUser, setUser, signInWithGoogle } = use(AuthContext);
     const [error, setError] = useState("");
     const emailRef = useRef();
     const location = useLocation();
@@ -37,7 +37,7 @@ const LoginPage = () => {
     }
 
     const handleGoogleSignin = () => {
-        loginWithGoogle()
+        signInWithGoogle()
             .then((result) => {
                 const user = result.user;
                 setUser(user);

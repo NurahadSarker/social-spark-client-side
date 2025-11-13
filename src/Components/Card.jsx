@@ -14,9 +14,9 @@ const Card = ({ eventsPromise }) => {
                     allEvents.map(events =>
                         <div key={events._id} className='border border-[#29B467] bg-gray-100 p-2'>
                             <div className='h-[200px] w-full bg-gray-400 flex items-center justify-center mb-2'>
-                                <img className='w-full h-full object-cover' src={events.thumbnailImageURL} alt="" />
+                                <img className='w-full h-full object-cover' src={events.thumbnailImage} alt="" />
                             </div>
-                            <h1 className='line-clamp-1 font-bold text-[18px] mb-1'>{events.eventTitle}</h1>
+                            <h1 className='line-clamp-1 font-bold text-[18px] mb-1'>{events.title}</h1>
                             <div className='mb-2 flex items-center gap-1 font-semibold'>
                                 <IoLocationSharp />
                                 <p>{events.location}</p>
@@ -28,7 +28,7 @@ const Card = ({ eventsPromise }) => {
                                 <p>{events.date}</p>
                             </div>
                             <div>
-                                <Link to={'/event-details'} className='btn bg-[#29B467] text-white text-center w-full'>Event Details</Link>
+                                <Link to={`/event-details/${events._id}`} className='btn bg-[#29B467] text-white text-center w-full'>Event Details</Link>
                             </div>
                         </div>)
                 }

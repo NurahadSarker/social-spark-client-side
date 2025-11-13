@@ -30,7 +30,7 @@ const router = createBrowserRouter([
                 </PrivateRouter>
             },
             {
-                path: '/joined-even',
+                path: '/joined-event',
                 element: <PrivateRouter>
                     <JoinedEventPage></JoinedEventPage>
                 </PrivateRouter>
@@ -53,6 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/event-details/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`),
                 element: <EventDetailsPage></EventDetailsPage>
             },
             {
