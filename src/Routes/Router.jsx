@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/event-details/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/events/${params.id}`),
+                loader: ({ params }) => fetch(`https://social-spark-server-side.vercel.app/events/${params.id}`),
                 element: <EventDetailsPage></EventDetailsPage>
             },
             {

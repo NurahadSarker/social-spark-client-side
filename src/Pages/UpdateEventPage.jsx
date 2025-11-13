@@ -13,7 +13,7 @@ const UpdateEventPage = () => {
 
     useEffect(() => {
         if (eventId) {
-            fetch(`http://localhost:5000/events/${eventId}`)
+            fetch(`https://social-spark-server-side.vercel.app/events/${eventId}`)
                 .then(res => res.json())
                 .then(data => {
                     setEventData(data);
@@ -40,7 +40,7 @@ const UpdateEventPage = () => {
             location: location,
             date: date
         }
-        fetch(`http://localhost:5000/events/${eventId}`, {
+        fetch(`https://social-spark-server-side.vercel.app/events/${eventId}`, {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json'
@@ -53,7 +53,7 @@ const UpdateEventPage = () => {
             e.target.reset()
             navigate('/up-coming-event')
         })
-        fetch(`http://localhost:5000/join-events/${eventId}`, {
+        fetch(`https://social-spark-server-side.vercel.app/join-events/${eventId}`, {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json'

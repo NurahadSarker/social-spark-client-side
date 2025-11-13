@@ -27,7 +27,7 @@ const CreateEventPage = () => {
             location: location,
             date: date
         }
-        fetch('http://localhost:5000/events', {
+        fetch('https://social-spark-server-side.vercel.app/events', {
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

@@ -22,7 +22,7 @@ const EventDetailsPage = () => {
             thumbnailImage: events.thumbnailImage,
             description: events.description
         };
-        fetch('http://localhost:5000/join-events', {
+        fetch('https://social-spark-server-side.vercel.app/join-events', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

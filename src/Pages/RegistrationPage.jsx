@@ -43,7 +43,7 @@ const RegistrationPage = () => {
                             image: result.user.photoURL
                         }
                         // console.log("Google user:", newUser);
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://social-spark-server-side.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -80,7 +80,7 @@ const RegistrationPage = () => {
                     image: result.user.photoURL
                 }
                 // console.log("Google user:", newUser);
-                fetch('http://localhost:5000/users', {
+                fetch('https://social-spark-server-side.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

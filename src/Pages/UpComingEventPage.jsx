@@ -6,7 +6,7 @@ const UpComingEventPage = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/events?search=${searchTerm}`)
+        fetch(`https://social-spark-server-side.vercel.app/events?search=${searchTerm}`)
             .then(res => res.json())
             .then(data => {
                 const today = new Date();

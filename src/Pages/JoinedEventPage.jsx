@@ -10,8 +10,8 @@ const JoinedEventPage = () => {
     useEffect(() => {
         if (user?.email) {
             Promise.all([
-                fetch(`http://localhost:5000/events?email=${user.email}`).then(res => res.json()),
-                fetch(`http://localhost:5000/join-events?email=${user.email}`).then(res => res.json())
+                fetch(`https://social-spark-server-side.vercel.app/events?email=${user.email}`).then(res => res.json()),
+                fetch(`https://social-spark-server-side.vercel.app/join-events?email=${user.email}`).then(res => res.json())
             ])
                 .then(([eventsData, joinedData]) => {
                     const allEvents = [...eventsData, ...joinedData];
