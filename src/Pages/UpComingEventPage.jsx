@@ -1,13 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card';
 
-const eventsPromise = fetch('http://localhost:5000/events')
-.then(res => res.json())
 
 const UpComingEventPage = () => {
+    const [events, setEvents] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/events')
+            .then(res => res.json())
+            .then(data => setEvents(data))
+    }, [])
     return (
-        <Card eventsPromise={eventsPromise}></Card>
+        <Card events={events}></Card>
     );
 };
 

@@ -1,17 +1,14 @@
-import React, { use } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import { IoLocationSharp } from "react-icons/io5";
 
-const Card = ({ eventsPromise }) => {
-    const allEvents = use(eventsPromise)
-    console.log(allEvents)
-
+const Card = ({ events }) => {
     return (
         <div className='max-w-[1200px] mx-auto py-20'>
             <h1 className='text-5xl font-bold text-center text-[#29B467] mb-10'>Up Coming Event</h1>
             <div className='grid grid-cols-4 gap-5'>
                 {
-                    allEvents.map(events =>
+                    events.map(events =>
                         <div key={events._id} className='border border-[#29B467] bg-gray-100 p-2'>
                             <div className='h-[200px] w-full bg-gray-400 flex items-center justify-center mb-2'>
                                 <img className='w-full h-full object-cover' src={events.thumbnailImage} alt="" />
