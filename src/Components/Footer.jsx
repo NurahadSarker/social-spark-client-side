@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthContext';
-import logo from '../assets/social-spark-logo.png'
+import logo from '../assets/social-spark-logo.png';
 import { Link } from 'react-router';
 
 const Footer = () => {

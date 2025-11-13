@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { IoLocationSharp } from "react-icons/io5";
 
 const Card = ({ events }) => {
+    
     return (
         <div className='max-w-[1200px] mx-auto py-10'>
             <div className='grid grid-cols-4 gap-5'>
