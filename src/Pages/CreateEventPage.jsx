@@ -16,7 +16,7 @@ const CreateEventPage = () => {
         const thumbnailImage = e.target.thumbnailImage.value;
         const location = e.target.location.value;
         const date = startDate.toISOString().split('T')[0];
-        console.log(title, eventDescription, email, eventType, thumbnailImage, location, date)
+        // console.log(title, eventDescription, email, eventType, thumbnailImage, location, date)
 
         const newEvent = {
             title: title,

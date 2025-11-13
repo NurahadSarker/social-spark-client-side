@@ -17,7 +17,7 @@ const JoinedEventPage = () => {
                     const allEvents = [...eventsData, ...joinedData];
                     setEvents(allEvents);
                 })
-                .catch(err => console.error('Error loading data:', err));
+                // .catch(err => console.error('Error loading data:', err));
         }
     }, [user?.email]);
     return (

@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 const EventDetailsPage = () => {
     const { user } = use(AuthContext)
     const events = useLoaderData()
-    console.log(events)
+    // console.log(events)
     const navigate = useNavigate()
 
     
