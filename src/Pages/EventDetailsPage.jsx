@@ -7,14 +7,8 @@ const EventDetailsPage = () => {
     const events = useLoaderData()
     console.log(events)
     const navigate = useNavigate()
-    // const { id } = useParams()
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/join-events/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
-    //         .catch(err => console.error(err));
-    // }, [id]);
+    
 
     const handleJoinBtn = (events) => {
         const joinData = {

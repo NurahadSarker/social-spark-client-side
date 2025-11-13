@@ -17,9 +17,7 @@ const Navbar = () => {
     const navLinks = <>
         <li className='btn1'><NavLink to={'/'}>Home</NavLink></li>
         <li className='btn1'><NavLink to={'/up-coming-event'}>Up Coming Events</NavLink></li>
-        <li className='btn1'><NavLink>About Us</NavLink></li>
-        <li className='btn1'><NavLink>Blog</NavLink></li>
-        <li className='btn1'><NavLink>Contact</NavLink></li>
+        <li className='btn1'><NavLink to="/about-us">About</NavLink></li>
     </>
     const eventLinks = <>
         <li className='btn1'><NavLink to={'/create-event'}>Create Event</NavLink></li>

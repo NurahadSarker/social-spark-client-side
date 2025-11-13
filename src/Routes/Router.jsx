@@ -13,6 +13,7 @@ import UpdateEventPage from "../Pages/UpdateEventPage";
 import AuthLayout from "../Layout/AuthLayout";
 import PrivateRouter from "../Provider/PrivateRouter";
 import ForgotPasswordPage from "../Pages/ForgotPasswordPage";
+import AboutUsPage from "../Pages/AboutUsPage";
 
 const router = createBrowserRouter([
     {
@@ -52,8 +53,12 @@ const router = createBrowserRouter([
                 element: <UpComingEventPage></UpComingEventPage>
             },
             {
+                path: "/about-us",
+                element: <AboutUsPage></AboutUsPage>
+            },
+            {
                 path: '/event-details/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/events/${params.id}`),
                 element: <EventDetailsPage></EventDetailsPage>
             },
             {
