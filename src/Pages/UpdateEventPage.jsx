@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router';
 
 const UpdateEventPage = () => {
@@ -29,7 +30,7 @@ const UpdateEventPage = () => {
         const thumbnailImage = e.target.thumbnailImage.value;
         const location = e.target.location.value;
         const date = startDate.toISOString().split('T')[0];
-        console.log(title, eventDescription, eventType, thumbnailImage, location, date)
+        // console.log(title, eventDescription, eventType, thumbnailImage, location, date)
 
         const newEvent = {
             title: title,
@@ -62,9 +63,11 @@ const UpdateEventPage = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            // toast.success('Events Info Update Successfully')
             e.target.reset()
             navigate('/up-coming-event')
         })
+        toast.success('Events Info Update Successfully')
         
     }
     return (

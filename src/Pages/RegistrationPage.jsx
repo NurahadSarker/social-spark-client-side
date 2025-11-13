@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
+import toast from 'react-hot-toast';
 
 const RegistrationPage = () => {
     const { createUser, setUser, signInWithGoogle, updateUser } = use(AuthContext)
@@ -41,7 +42,7 @@ const RegistrationPage = () => {
                             email: result.user.email,
                             image: result.user.photoURL
                         }
-                        console.log("Google user:", newUser);
+                        // console.log("Google user:", newUser);
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
@@ -52,11 +53,11 @@ const RegistrationPage = () => {
                             .then(data => {
                                 console.log('Data after save users', data)
                             })
-                        alert('Registration successful!!')
+                        toast.success('Registration successful!!')
                         navigate(location.state || "/");
                     })
                     .catch((error) => {
-                        console.log(error)
+                        toast.error(error)
                     })
             })
             .catch((error) => {
@@ -78,7 +79,7 @@ const RegistrationPage = () => {
                     email: result.user.email,
                     image: result.user.photoURL
                 }
-                console.log("Google user:", newUser);
+                // console.log("Google user:", newUser);
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
@@ -89,7 +90,7 @@ const RegistrationPage = () => {
                     .then(data => {
                         console.log('Data after save users', data)
                     })
-                alert('Register with gmail Successfully!!')
+                toast.success('Register with gmail Successfully!!')
                 navigate(`/`)
             })
             .catch((error) => {

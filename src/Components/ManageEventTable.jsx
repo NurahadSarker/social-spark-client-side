@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const ManageEventTable = ({ events: initialEvents }) => {
     const [events, setEvents] = useState(initialEvents || [])
@@ -8,17 +9,32 @@ const ManageEventTable = ({ events: initialEvents }) => {
         setEvents(initialEvents);
     }, [initialEvents]);
     const handleDelete = (id, source) => {
-        if (confirm("Are you sure you want to delete this event?")) {
-            fetch(`http://localhost:5000/${source}/${id}`, {
-                method: "DELETE"
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        setEvents(events.filter(event => event._id !== id));
-                    }
-                });
-        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/${source}/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            setEvents(events.filter(event => event._id !== id));
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    });
+            }
+        });
     };
 
     return (

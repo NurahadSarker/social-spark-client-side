@@ -3,14 +3,15 @@ import { Link, NavLink } from 'react-router';
 import logo from '../assets/social-spark-logo.png';
 import userIcon from '../assets/user-icon.png'
 import { AuthContext } from '../Provider/AuthContext';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const { user, logOutUser } = use(AuthContext)
     const handleLogOut = () => {
         logOutUser().then(() => {
-            alert('Log Out successfully')
+            toast.success('Log Out successfully')
         }).catch((err) => {
-            alert(err)
+            toast.error(err)
         })
     }
     const navLinks = <>

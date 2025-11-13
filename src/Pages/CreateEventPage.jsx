@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
 
 const CreateEventPage = () => {
@@ -36,6 +37,7 @@ const CreateEventPage = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            toast.success('Events Create Successfully')
             e.target.reset()
             navigate('/up-coming-event')
         })

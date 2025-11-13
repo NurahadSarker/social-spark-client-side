@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
+import toast from 'react-hot-toast';
 
 const EventDetailsPage = () => {
     const { user } = use(AuthContext)
@@ -31,6 +32,7 @@ const EventDetailsPage = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                toast.success('Join This Event Successfully')
                 navigate('/joined-event')
             })
     }
