@@ -14,7 +14,7 @@ const UpComingEventPage = () => {
     return (
         <div className="max-w-[1200px] mx-auto py-10">
             <h1 className='text-5xl font-bold text-center text-[#29B467] mb-10'>Up Coming Event</h1>
-            <div className="text-center mb-10">
+            <div className="text-center mb-2">
                 <input 
                     type="text" 
                     placeholder="Search event by title..." 
