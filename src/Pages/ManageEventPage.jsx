@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import ManageEventTable from '../Components/ManageEventTable';
 import { AuthContext } from '../Provider/AuthContext';
+// import toast from 'react-hot-toast';
 
 const ManageEventPage = () => {
     const [events, setEvents] = useState([])
@@ -19,7 +20,7 @@ const ManageEventPage = () => {
                 const allEvents = [...ownEventsWithSource, ...joinedEventsWithSource];
                 setEvents(allEvents);
             })
-            .catch(err => console.error('Error loading events:', err));
+            // .catch(err => toast.error('Error loading events:', err));
     }
 }, [user?.email]);
 
