@@ -44,7 +44,7 @@ const CreateEventPage = () => {
         
     }
     return (
-        <div className="min-h-screen py-20">
+        <div className="md:min-h-screen py-10 md:py-20">
             <div className=" bg-base-100 w-full max-w-[900px] mx-auto shrink-0">
                 <form onSubmit={handleCreateEvent} className="card-body">
                     <fieldset className="fieldset">

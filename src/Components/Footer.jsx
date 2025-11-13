@@ -7,7 +7,7 @@ const Footer = () => {
     const {user} = use(AuthContext)
     return (
         <div className='bg-[#cbd9e9]'>
-            <footer className="footer sm:footer-horizontal text-neutral-content pt-10 pb-3 mb-3 max-w-[1200px] mx-auto border-b border-gray-500">
+            <footer className="footer sm:footer-horizontal text-neutral-content pt-10 pb-3 mb-3 max-w-[400px] mx-auto md:max-w-[1200px] md:mx-auto border-b border-gray-500">
                 <nav>
                     <img className='w-[250px]' src={logo} alt="" />
                 </nav>

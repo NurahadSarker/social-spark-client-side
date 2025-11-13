@@ -1,6 +1,6 @@
 # SocialSpark - Social Development Events Platform
 
-**Live Site:** [Your Live Site URL Here](https://your-live-site-url.com)
+**Live Site:** [Your Live Site URL Here](https://social-spark-8dae9.web.app/)
 
 SocialSpark is a community-driven platform for managing social service events. Users can create, join, and track events happening in their local area, helping communities grow through collaborative actions.
 
@@ -36,7 +36,7 @@ SocialSpark is a community-driven platform for managing social service events. U
 - **Frontend:** React, Tailwind CSS, React Router, React Datepicker, Framer Motion  
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB  
-- **Hosting:** Netlify (frontend), Vercel (backend)  
+- **Hosting:** Firebase (frontend), Vercel (backend)  
 - **Authentication:** Firebase Authentication  
 
 ---
