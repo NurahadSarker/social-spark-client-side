@@ -1,6 +1,6 @@
 # SocialSpark - Social Development Events Platform
 
-**Live Site:** [Your Live Site URL Here](https://social-spark-8dae9.web.app/)
+**Live Site:** [Site Live Link Here](https://social-spark-8dae9.web.app/)
 
 SocialSpark is a community-driven platform for managing social service events. Users can create, join, and track events happening in their local area, helping communities grow through collaborative actions.
 
