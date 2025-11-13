@@ -1,16 +1,49 @@
-# React + Vite
+# SocialSpark - Social Development Events Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [Your Live Site URL Here](https://your-live-site-url.com)
 
-Currently, two official plugins are available:
+SocialSpark is a community-driven platform for managing social service events. Users can create, join, and track events happening in their local area, helping communities grow through collaborative actions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **User Authentication:** Sign up and log in with email/password or Google.
+- **Create Events:** Logged-in users can create events with title, description, location, event type, date, and thumbnail image.
+- **Upcoming Events:** Browse all upcoming events in a beautiful grid layout. Past events are automatically hidden.
+- **Join Events:** Users can join events and track their participation.
+- **Manage Events:** Users can view, edit, or delete events they have created.
+- **Search & Filter:** Search events by title and filter events by type.
+- **Theme Toggle:** Switch between light and dark modes for better user experience.
+- **Responsive Design:** Works seamlessly on mobile, tablet, and desktop devices.
+- **Animations:** Interactive animations using Framer Motion enhance the UI.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Pages
+
+1. **Home Page:** Public page showcasing banners, features, gallery, and newsletter subscription section.  
+2. **Login / Register:** Authentication pages with validation and toast notifications.  
+3. **Create Event:** Private page to create new social events.  
+4. **Upcoming Events:** Public page showing only future events.  
+5. **Joined Events:** Private page displaying events joined by the user.  
+6. **Manage Events:** Private page allowing users to manage events they have created.  
+
+---
+
+## Technology Stack
+
+- **Frontend:** React, Tailwind CSS, React Router, React Datepicker, Framer Motion  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB  
+- **Hosting:** Netlify (frontend), Vercel (backend)  
+- **Authentication:** Firebase Authentication  
+
+---
+
+## Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/social-spark-client-side.git
+   git clone https://github.com/yourusername/social-spark-server-side.git
