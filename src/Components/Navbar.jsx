@@ -6,7 +6,6 @@ import { AuthContext } from '../Provider/AuthContext';
 
 const Navbar = () => {
     const { user, logOutUser } = use(AuthContext)
-    // console.log(user)
     const handleLogOut = () => {
         logOutUser().then(() => {
             alert('Log Out successfully')
@@ -64,7 +63,6 @@ const Navbar = () => {
                                 {eventLinks}
                             </ul>
                         </div>
-                        {/* <Link to={'/auth/login'} className="button2">Login</Link> */}
                         <div>
                             {
                                 user ? (

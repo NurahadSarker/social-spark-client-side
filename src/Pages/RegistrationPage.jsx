@@ -30,7 +30,6 @@ const RegistrationPage = () => {
         else {
             setPassValidation("")
         }
-        // console.log({ name, photo, email, password })
         createUser(email, password)
             .then(result => {
                 const user = result.user;
@@ -73,7 +72,7 @@ const RegistrationPage = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user
-                // console.log(user)
+                console.log(user)
                 const newUser = {
                     name: result.user.displayName,
                     email: result.user.email,

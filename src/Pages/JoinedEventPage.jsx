@@ -7,14 +7,6 @@ const JoinedEventPage = () => {
     const [events, setEvents] = useState([])
     const { user } = use(AuthContext)
 
-    // useEffect(() => {
-    //     if (user?.email) {
-    //         fetch(`http://localhost:5000/events?email=${user.email}`)
-    //             .then(res => res.json())
-    //             .then(data => setEvents(data))
-    //     }
-    // }, [user?.email])
-
     useEffect(() => {
         if (user?.email) {
             Promise.all([

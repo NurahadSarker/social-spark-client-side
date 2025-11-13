@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router';
 const CreateEventPage = () => {
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate()
-    // const [description, setDescription] = useState("");
     const handleCreateEvent = (e) => {
         e.preventDefault()
         const title = e.target.title.value;

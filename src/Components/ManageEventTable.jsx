@@ -7,21 +7,6 @@ const ManageEventTable = ({ events: initialEvents }) => {
     useEffect(() => {
         setEvents(initialEvents);
     }, [initialEvents]);
-
-    // const handleDelete = (id) => {
-    //     if (confirm("Are you sure you want to delete this event?")) {
-    //         fetch(`http://localhost:5000/events/${id}`, {
-    //             method: "DELETE"
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 if (data.deletedCount > 0) {
-    //                     setEvents(events.filter(event => event._id !== id));
-    //                 }
-    //             });
-    //     }
-    // }
-
     const handleDelete = (id, source) => {
         if (confirm("Are you sure you want to delete this event?")) {
             fetch(`http://localhost:5000/${source}/${id}`, {
