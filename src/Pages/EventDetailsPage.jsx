@@ -20,7 +20,7 @@ const EventDetailsPage = () => {
                     </div>
                 </div>
                 <div className='text-justify mb-5'>
-                    <h1 className='text-[18px] font-bold'>Description</h1>
+                    <h1 className='text-[18px]'>Description</h1>
                     <p>{events.eventDescription}</p>
                 </div>
                 <button className='btn bg-[#29B467] text-white'>Join Event</button>
