@@ -5,8 +5,8 @@ import { IoLocationSharp } from "react-icons/io5";
 const Card = ({ events }) => {
     
     return (
-        <div className='max-w-[1200px] mx-auto py-10'>
-            <div className='grid grid-cols-4 gap-5'>
+        <div className='max-w-[400px] mx-auto md:max-w-[1200px] md:mx-auto py-10'>
+            <div className='md:grid md:grid-cols-4 gap-5'>
                 {
                     events.map(events =>
                         <div key={events._id} className='border border-[#29B467] bg-gray-100 p-2'>
