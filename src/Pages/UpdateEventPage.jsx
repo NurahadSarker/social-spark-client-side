@@ -9,7 +9,6 @@ const UpdateEventPage = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const eventId = location.state?.id;
-    console.log(eventId)
 
     useEffect(() => {
         if (eventId) {
@@ -41,6 +40,19 @@ const UpdateEventPage = () => {
             date: date
         }
         fetch(`http://localhost:5000/events/${eventId}`, {
+            method: 'PATCH',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(newEvent)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            e.target.reset()
+            navigate('/up-coming-event')
+        })
+        fetch(`http://localhost:5000/join-events/${eventId}`, {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json'

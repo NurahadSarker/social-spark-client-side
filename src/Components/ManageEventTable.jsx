@@ -8,9 +8,23 @@ const ManageEventTable = ({ events: initialEvents }) => {
         setEvents(initialEvents);
     }, [initialEvents]);
 
-    const handleDelete = (id) => {
+    // const handleDelete = (id) => {
+    //     if (confirm("Are you sure you want to delete this event?")) {
+    //         fetch(`http://localhost:5000/events/${id}`, {
+    //             method: "DELETE"
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (data.deletedCount > 0) {
+    //                     setEvents(events.filter(event => event._id !== id));
+    //                 }
+    //             });
+    //     }
+    // }
+
+    const handleDelete = (id, source) => {
         if (confirm("Are you sure you want to delete this event?")) {
-            fetch(`http://localhost:5000/events/${id}`, {
+            fetch(`http://localhost:5000/${source}/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -20,7 +34,8 @@ const ManageEventTable = ({ events: initialEvents }) => {
                     }
                 });
         }
-    }
+    };
+
     return (
         <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
             <table className="table">
@@ -44,8 +59,15 @@ const ManageEventTable = ({ events: initialEvents }) => {
                                 <td>{events.location}</td>
                                 <td>{events.eventType}</td>
                                 <td>
-                                    <Link state={{ id: events._id }} to={'/update-event'} className='btn bg-[#29B467] text-white mr-2'>Update</Link>
-                                    <button onClick={() => handleDelete(events._id)} className='btn bg-red-500 text-white'>Delete</button>
+                                    <Link
+                                        state={{ id: events._id, source: events.source }}
+                                        to={'/update-event'}
+                                        className='btn bg-[#29B467] text-white mr-2'
+                                    >
+                                        Update
+                                    </Link>
+
+                                    <button onClick={() => handleDelete(events._id, events.source)} className='btn bg-red-500 text-white'>Delete</button>
                                 </td>
                             </tr>)
                     }

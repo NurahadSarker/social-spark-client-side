@@ -1,9 +1,45 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { use } from 'react';
+import { useLoaderData, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthContext';
 
 const EventDetailsPage = () => {
+    const { user } = use(AuthContext)
     const events = useLoaderData()
     console.log(events)
+    const navigate = useNavigate()
+    // const { id } = useParams()
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/join-events/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => console.log(data))
+    //         .catch(err => console.error(err));
+    // }, [id]);
+
+    const handleJoinBtn = (events) => {
+        const joinData = {
+            eventId: events._id,
+            title: events.title,
+            email: user.email,
+            date: events.date,
+            location: events.location,
+            eventType: events.eventType,
+            thumbnailImage: events.thumbnailImage,
+            description: events.description
+        };
+        fetch('http://localhost:5000/join-events', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(joinData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                navigate('/joined-event')
+            })
+    }
     return (
         <div className='max-w-[1200px] mx-auto py-20'>
             <h1 className='text-5xl font-bold text-center text-[#29B467] mb-10'>More Info For Every Event</h1>
@@ -20,10 +56,10 @@ const EventDetailsPage = () => {
                     </div>
                 </div>
                 <div className='text-justify mb-5'>
-                    <h1 className='text-[18px]'>Description</h1>
+                    <h1 className='text-[18px] font-bold'>Description</h1>
                     <p>{events.eventDescription}</p>
                 </div>
-                <button className='btn bg-[#29B467] text-white'>Join Event</button>
+                <button onClick={() => handleJoinBtn(events)} className='btn bg-[#29B467] text-white'>Join Event</button>
             </div>
         </div>
     );

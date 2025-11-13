@@ -7,13 +7,27 @@ const JoinedEventPage = () => {
     const [events, setEvents] = useState([])
     const { user } = use(AuthContext)
 
+    // useEffect(() => {
+    //     if (user?.email) {
+    //         fetch(`http://localhost:5000/events?email=${user.email}`)
+    //             .then(res => res.json())
+    //             .then(data => setEvents(data))
+    //     }
+    // }, [user?.email])
+
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/events?email=${user.email}`)
-                .then(res => res.json())
-                .then(data => setEvents(data))
+            Promise.all([
+                fetch(`http://localhost:5000/events?email=${user.email}`).then(res => res.json()),
+                fetch(`http://localhost:5000/join-events?email=${user.email}`).then(res => res.json())
+            ])
+                .then(([eventsData, joinedData]) => {
+                    const allEvents = [...eventsData, ...joinedData];
+                    setEvents(allEvents);
+                })
+                .catch(err => console.error('Error loading data:', err));
         }
-    }, [user?.email])
+    }, [user?.email]);
     return (
         <div className='max-w-[1200px] mx-auto py-20'>
             <h1 className='text-5xl font-bold text-center text-[#29B467] mb-10'>Joined Event</h1>
