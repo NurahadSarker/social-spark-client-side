@@ -1,14 +1,64 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const UpdateEventPage = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const [eventData, setEventData] = useState({});
+    const navigate = useNavigate()
+    const location = useLocation();
+    const eventId = location.state?.id;
+    console.log(eventId)
+
+    useEffect(() => {
+        if (eventId) {
+            fetch(`http://localhost:5000/events/${eventId}`)
+                .then(res => res.json())
+                .then(data => {
+                    setEventData(data);
+                    setStartDate(new Date(data.date));
+                });
+        }
+    }, [eventId]);
+
+    const handleCreateEvent = (e) => {
+        e.preventDefault()
+        const title = e.target.title.value;
+        const eventDescription = e.target.description.value;
+        const eventType = e.target.eventType.value;
+        const thumbnailImage = e.target.thumbnailImage.value;
+        const location = e.target.location.value;
+        const date = startDate.toISOString().split('T')[0];
+        console.log(title, eventDescription, eventType, thumbnailImage, location, date)
+
+        const newEvent = {
+            title: title,
+            eventDescription: eventDescription,
+            eventType: eventType,
+            thumbnailImage: thumbnailImage,
+            location: location,
+            date: date
+        }
+        fetch(`http://localhost:5000/events/${eventId}`, {
+            method: 'PATCH',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(newEvent)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            e.target.reset()
+            navigate('/up-coming-event')
+        })
+        
+    }
     return (
         <div className="min-h-screen py-20">
             <div className=" bg-base-100 w-full max-w-[900px] mx-auto shrink-0">
-                <form className="card-body">
+                <form onSubmit={handleCreateEvent} className="card-body">
                     <fieldset className="fieldset">
                         <h1 className='text-5xl font-bold text-[#29B467] mb-2'>Update Your Event</h1>
 
@@ -18,11 +68,11 @@ const UpdateEventPage = () => {
 
                         {/*description*/}
                         <label className="label">Description</label>
-                        <textarea className="textarea w-full" placeholder="Write your Event Description..."></textarea>
+                        <textarea name='description' className="textarea w-full" placeholder="Write your Event Description..."></textarea>
 
                         {/*event type*/}
                         <label className="label">Event Type</label>
-                        <select defaultValue="Select event type" className="select w-full">
+                        <select name='eventType' defaultValue="Select event type" className="select w-full">
                             <option disabled={true}>Select event type</option>
                             <option>Cleanup</option>
                             <option>Plantation</option>
