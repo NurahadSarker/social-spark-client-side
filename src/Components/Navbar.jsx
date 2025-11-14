@@ -1,12 +1,13 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
-import logo from '../assets/social-spark-logo.png';
+import logo from '../assets/logo-wo-text.png';
 import userIcon from '../assets/user-icon.png'
 import { AuthContext } from '../Provider/AuthContext';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const { user, logOutUser } = use(AuthContext)
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
     const handleLogOut = () => {
         logOutUser().then(() => {
             toast.success('Log Out successfully')
@@ -14,6 +15,17 @@ const Navbar = () => {
             toast.error(err)
         })
     }
+
+    useEffect(() => {
+        const html = document.querySelector('html')
+        html.setAttribute("data-theme", theme)
+        localStorage.setItem("theme", theme)
+    }, [theme])
+
+    const handleTheme = (checked) =>{
+        setTheme(checked ? "dark" : "light")
+    }
+
     const navLinks = <>
         <li className='btn1'><NavLink to={'/'}>Home</NavLink></li>
         <li className='btn1'><NavLink to={'/up-coming-event'}>Up Coming Events</NavLink></li>
@@ -35,12 +47,13 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex="-1"
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+                                className=" menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
                                 {navLinks}
                             </ul>
                         </div>
-                        <div>
-                            <Link to={'/'}><img className='w-25' src={logo} alt="" /></Link>
+                        <div className='flex items-center gap-2'>
+                            <Link to={'/'}><img className='w-[45px]' src={logo} alt="" /></Link>
+                            <h1 className='leading-7 text-[26px] font-bold'>Social<br />Spark</h1>
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -49,18 +62,23 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <div className="dropdown dropdown-end mr-3">
+                        <input
+                            onChange={(e) => handleTheme(e.target.checked)}
+                            type="checkbox"
+                            defaultChecked={localStorage.getItem('theme') === "dark"}
+                            className="toggle mr-2" />
+                        <div className="dropdown dropdown-end mr-2">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img
-                                    title={user ? user.displayName : "Please Login"}
-                                    alt="Tailwind CSS Navbar component"
-                                    src={`${user ? user.photoURL : userIcon}`} />
+                                        title={user ? user.displayName : "Please Login"}
+                                        alt="Tailwind CSS Navbar component"
+                                        src={`${user ? user.photoURL : userIcon}`} />
                                 </div>
                             </div>
                             <ul
                                 tabIndex="-1"
-                                className="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                className="menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                                 {eventLinks}
                             </ul>
                         </div>

@@ -5,8 +5,8 @@ import Image3 from '../assets/image3.jpg';
 
 const FeaturesSection = () => {
     return (
-        <div className='bg-gray-100'>
-            <div className='max-w-[400px] md:max-w-[1200px]  mx-auto md:mx-auto py-5 md:py-20'>
+        <div>
+            <div className='max-w-[400px] md:max-w-[1200px]  mx-auto md:mx-auto py-5 md:pt-20 md:pb-10'>
                 <div className='flex flex-col items-center justify-center mb-5 md:mb-10'>
                     <h1 className='text-3xl md:text-5xl font-bold text-[#29B467] mb-2'>Our Features</h1>
                 </div>
