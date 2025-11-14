@@ -5,13 +5,8 @@ import { Outlet } from 'react-router';
 import Main from '../Components/Main';
 import { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../Provider/AuthContext';
-import Loading from '../Components/Loading';
 
 const RootLayout = () => {
-    const {loading} = use(AuthContext)
-    if (loading) {
-        return <Loading></Loading>
-    }
     return (
         <div className='flex flex-col min-h-screen poppins'>
             <Navbar></Navbar>

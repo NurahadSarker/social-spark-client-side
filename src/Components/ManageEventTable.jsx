@@ -74,6 +74,11 @@ const ManageEventTable = ({ events: initialEvents }) => {
                     }
                 </tbody>
             </table>
+            {events.length === 0 && (
+                <p className="text-center text-xl font-semibold py-10 text-gray-500">
+                    No Events Yet
+                </p>
+            )}
         </div>
     );
 };
