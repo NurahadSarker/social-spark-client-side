@@ -48,7 +48,7 @@ const CreateEventPage = () => {
             <div className=" bg-base-100 w-full max-w-[900px] mx-auto shrink-0">
                 <form onSubmit={handleCreateEvent} className="card-body">
                     <fieldset className="fieldset">
-                        <h1 className='text-5xl font-bold text-[#29B467] mb-2'>Create Event</h1>
+                        <h1 className='text-3xl md:text-5xl font-bold text-[#29B467] mb-2'>Create Event</h1>
 
                         {/* title */}
                         <label className="label">Title</label>

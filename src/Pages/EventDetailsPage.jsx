@@ -37,11 +37,11 @@ const EventDetailsPage = () => {
             })
     }
     return (
-        <div className='max-w-[1200px] mx-auto py-20'>
-            <h1 className='text-5xl font-bold text-center text-[#29B467] mb-10'>More Info For Every Event</h1>
+        <div className='max-w-[400px] mx-auto md:max-w-[1200px] md:mx-auto py-20'>
+            <h1 className='text-3xl md:text-5xl font-bold text-center text-[#29B467] mb-10'>More Info For Every Event</h1>
             <div>
-                <div className='flex items-center gap-5 mb-5'>
-                    <div className='h-[300px] w-[450px] bg-gray-100 p-2 border border-[#29B467] flex items-center justify-center'>
+                <div className='md:flex items-center gap-5 mb-5'>
+                    <div className='md:h-[300px] md:w-[450px] bg-gray-100 p-2 border border-[#29B467] flex items-center justify-center'>
                         <img className='w-full h-full object-cover' src={events.thumbnailImage} alt="" />
                     </div>
                     <div>

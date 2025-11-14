@@ -21,12 +21,12 @@ const JoinedEventPage = () => {
         }
     }, [user?.email]);
     return (
-        <div className='max-w-[1200px] mx-auto py-20'>
-            <h1 className='text-5xl font-bold text-center text-[#29B467] mb-10'>Joined Event</h1>
-            <div className='grid grid-cols-4 gap-5'>
+        <div className='max-w-[400px] mx-auto md:max-w-[1200px] md:mx-auto py-20'>
+            <h1 className='text-3xl md:text-5xl font-bold text-center text-[#29B467] mb-10'>Joined Event</h1>
+            <div className='md:grid md:grid-cols-4 gap-5'>
                 {
                     events.map(events =>
-                        <div key={events._id} className='border border-[#29B467] bg-gray-100 p-2'>
+                        <div key={events._id} className='border border-[#29B467] bg-gray-100 p-2 mb-5 md:mb-0'>
                             <div className='h-[200px] w-full bg-gray-400 flex items-center justify-center mb-2'>
                                 <img className='w-full h-full object-cover' src={events.thumbnailImage} alt="" />
                             </div>

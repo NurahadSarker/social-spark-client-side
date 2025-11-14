@@ -9,7 +9,7 @@ const Card = ({ events }) => {
             <div className='md:grid md:grid-cols-4 gap-5'>
                 {
                     events.map(events =>
-                        <div key={events._id} className='border border-[#29B467] bg-gray-100 p-2'>
+                        <div key={events._id} className='border border-[#29B467] bg-gray-100 p-2 mb-5 md:mb-0'>
                             <div className='h-[200px] w-full bg-gray-400 flex items-center justify-center mb-2'>
                                 <img className='w-full h-full object-cover' src={events.thumbnailImage} alt="" />
                             </div>
