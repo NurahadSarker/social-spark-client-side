@@ -13,6 +13,7 @@ const UpComingEventPage = () => {
             .then(res => res.json())
             .then(data => {
                 const today = new Date();
+                today.setHours(0, 0, 0, 0);
                 const upcomingEvents = data.filter(event => new Date(event.date) >= today);
 
                 setEvents(upcomingEvents);
