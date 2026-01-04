@@ -62,7 +62,7 @@ const ManageEventTable = ({ events: initialEvents }) => {
                                 <td>
                                     <Link
                                         state={{ id: events._id, source: events.source }}
-                                        to={'/update-event'}
+                                        to={`/dashboard/update-event/${events._id}`}
                                         className='btn bg-[#29B467] text-white mr-2'
                                     >
                                         Update

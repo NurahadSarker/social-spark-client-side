@@ -13,7 +13,7 @@ const Footer = () => {
                 <div className='w-[300px]'>
                     <nav className='flex items-center gap-2'>
                         <img className='w-[50px]' src={logo} alt="" />
-                        <h1 className='text-[32px] font-bold text-base-content leading-7'>Social<br />Spark</h1>
+                        <h1 className='text-[32px] font-bold text-base-content leading-7'>Social Spark</h1>
                     </nav>
                     <p>Join hands to organize and participate in social development events across Bangladesh.</p>
                 </div>

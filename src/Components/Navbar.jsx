@@ -29,13 +29,16 @@ const Navbar = () => {
     const navLinks = <>
         <li className='btn1'><NavLink to={'/'}>Home</NavLink></li>
         <li className='btn1'><NavLink to={'/up-coming-event'}>Up Coming Events</NavLink></li>
+        {
+            user ? <li className='btn1'><NavLink to={'dashboard'}>Dashboard</NavLink></li> : ""
+        }
         <li className='btn1'><NavLink to="/about-us">About</NavLink></li>
     </>
-    const eventLinks = <>
-        <li className='btn1'><NavLink to={'/create-event'}>Create Event</NavLink></li>
-        <li className='btn1'><NavLink to={'/manage-event'}>Manage Events</NavLink></li>
-        <li className='btn1'><NavLink to={'/joined-event'}>Joined Events</NavLink></li>
-    </>
+    // const eventLinks = <>
+    //     <li className='btn1'><NavLink to={'/create-event'}>Create Event</NavLink></li>
+    //     <li className='btn1'><NavLink to={'/manage-event'}>Manage Events</NavLink></li>
+    //     <li className='btn1'><NavLink to={'/joined-event'}>Joined Events</NavLink></li>
+    // </>
     return (
         <>
             <div className="bg-base-100 shadow-sm">
@@ -51,10 +54,10 @@ const Navbar = () => {
                                 {navLinks}
                             </ul>
                         </div>
-                        <div className='flex items-center gap-2'>
-                            <Link to={'/'}><img className='w-[45px]' src={logo} alt="" /></Link>
-                            <h1 className='leading-7 text-[26px] font-bold'>Social<br />Spark</h1>
-                        </div>
+                        <Link className='flex items-center gap-2'>
+                            <img className='w-[35px]' src={logo} alt="" />
+                            <h1 className='text-[22px] font-bold'>Social Spark</h1>
+                        </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className=" menu-horizontal px-1">
@@ -78,7 +81,7 @@ const Navbar = () => {
 
                         </label>
                         <div className="dropdown dropdown-end mr-2">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="rounded-full avatar">
                                 <div className="w-10 rounded-full">
                                     <img
                                         title={user ? user.displayName : "Please Login"}
@@ -86,11 +89,6 @@ const Navbar = () => {
                                         src={`${user ? user.photoURL : userIcon}`} />
                                 </div>
                             </div>
-                            <ul
-                                tabIndex="-1"
-                                className="menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
-                                {eventLinks}
-                            </ul>
                         </div>
                         <div>
                             {

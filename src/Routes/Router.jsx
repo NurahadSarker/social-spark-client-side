@@ -14,6 +14,7 @@ import AuthLayout from "../Layout/AuthLayout";
 import PrivateRouter from "../Provider/PrivateRouter";
 import ForgotPasswordPage from "../Pages/ForgotPasswordPage";
 import AboutUsPage from "../Pages/AboutUsPage";
+import Dashboard from "../Components/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -23,30 +24,6 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <HomePage></HomePage>
-            },
-            {
-                path: '/create-event',
-                element: <PrivateRouter>
-                    <CreateEventPage></CreateEventPage>
-                </PrivateRouter>
-            },
-            {
-                path: '/joined-event',
-                element: <PrivateRouter>
-                    <JoinedEventPage></JoinedEventPage>
-                </PrivateRouter>
-            },
-            {
-                path: '/manage-event',
-                element: <PrivateRouter>
-                    <ManageEventPage></ManageEventPage>
-                </PrivateRouter>
-            },
-            {
-                path: '/update-event',
-                element: <PrivateRouter>
-                    <UpdateEventPage></UpdateEventPage>
-                </PrivateRouter>
             },
             {
                 path: '/up-coming-event',
@@ -85,6 +62,39 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dashboard',
+        element: <PrivateRouter>
+            <Dashboard></Dashboard>
+        </PrivateRouter>,
+        children: [
+            {
+                path: 'create-event',
+                element: <PrivateRouter>
+                    <CreateEventPage></CreateEventPage>
+                </PrivateRouter>
+            },
+            {
+                path: 'joined-event',
+                element: <PrivateRouter>
+                    <JoinedEventPage></JoinedEventPage>
+                </PrivateRouter>
+            },
+            {
+                path: 'manage-event',
+                element: <PrivateRouter>
+                    <ManageEventPage></ManageEventPage>
+                </PrivateRouter>
+            },
+            {
+                path: '/dashboard/update-event/:id',
+                element: <PrivateRouter>
+                    <UpdateEventPage></UpdateEventPage>
+                </PrivateRouter>
+            },
+        ]
+        
+    }
 ])
 
 export default router;

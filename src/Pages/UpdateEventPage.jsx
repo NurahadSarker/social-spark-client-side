@@ -117,7 +117,7 @@ const UpdateEventPage = () => {
 
                         <div className='flex items-center'>
                             <button type='submit' className="btn btn-neutral mt-4 text-white bg-[#29B467] border-0 mr-3">Update Event</button>
-                            <Link to={'/manage-event'} className="btn btn-neutral mt-4 text-white bg-red-500 border-0">Cancel</Link>
+                            <Link to={'/dashboard/manage-event'} className="btn btn-neutral mt-4 text-white bg-red-500 border-0">Cancel</Link>
                         </div>
                     </fieldset>
                 </form>
