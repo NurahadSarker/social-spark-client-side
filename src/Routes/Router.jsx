@@ -15,6 +15,8 @@ import PrivateRouter from "../Provider/PrivateRouter";
 import ForgotPasswordPage from "../Pages/ForgotPasswordPage";
 import AboutUsPage from "../Pages/AboutUsPage";
 import Dashboard from "../Components/Dashboard";
+import DashboardHomePage from "../Pages/DashboardHomePage";
+import Profile from "../Pages/Profile";
 
 const router = createBrowserRouter([
     {
@@ -69,6 +71,12 @@ const router = createBrowserRouter([
         </PrivateRouter>,
         children: [
             {
+                index: true,
+                element: <PrivateRouter>
+                    <DashboardHomePage></DashboardHomePage>
+                </PrivateRouter>
+            },
+            {
                 path: 'create-event',
                 element: <PrivateRouter>
                     <CreateEventPage></CreateEventPage>
@@ -92,6 +100,10 @@ const router = createBrowserRouter([
                     <UpdateEventPage></UpdateEventPage>
                 </PrivateRouter>
             },
+            {
+                path: 'profile',
+                element: <Profile></Profile>
+            }
         ]
         
     }
