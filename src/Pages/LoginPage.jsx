@@ -64,12 +64,12 @@ const LoginPage = () => {
                         <div className='border-b border-gray-400 mb-2'></div>
                         {/* email */}
                         <label className="label">Email</label>
-                        <input ref={emailRef} name='email' type="email" className="input" placeholder="Email" required />
+                        <input ref={emailRef} name='email' type="email" className="input" placeholder="Email" required defaultValue="demouser@gmail.com"/>
 
                         {/* password */}
                         <label className="label">Password</label>
                         <div className='relative'>
-                            <input name='password' type={showPassword ? 'text' : 'password'} className="input" placeholder="Password" required />
+                            <input name='password' type={showPassword ? 'text' : 'password'} className="input" placeholder="Password" required defaultValue="Demo@1234"/>
                             <button onClick={handleShowPasswordBtn} className='top-3 right-7 text-[18px] absolute hover:cursor-pointer'>{showPassword ? <FaEyeSlash /> : <FaEye />}</button>
                         </div>
                         <div><a onClick={handleForgotPassword} className="link link-hover">Forgot password?</a></div>
